@@ -1,0 +1,22 @@
+@(form: Form[LoginModel])(implicit messagesProvider: MessagesProvider)
+
+@main("Login") {
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        @helper.form(routes.LoginController.loginSubmit()){
+                            @helper.inputText(form("username"), '_label -> "Login", '_showConstraints -> false)
+                            @helper.inputPassword(form("password"), '_label -> "Password", '_showConstraints -> false)
+                            <button type="submit">Log In</button>
+                        }
+                    </div>
+                <div class="col-6">
+                        @helper.form(routes.SignUpController.signUpSubmit()) {
+                                @helper.inputText(form("username"), '_label -> "Your username", '_showConstraints -> false)
+                                @helper.inputPassword(form("enterPassword"), '_label -> " Enter your password", '_showConstraints -> false)
+                                <button type="submit">Sign Up</button>
+                        }
+                    </div>
+                </div>
+            </div>
+}
